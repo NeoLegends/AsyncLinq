@@ -3,17 +3,17 @@ AsyncLinq
 
 A collection of extension methods providing support for TPL tasks in LINQ-to-Objects.
 
-LINQ-Support[^1]:
+LINQ-Support:
 - [ ] Aggregate
 - [X] All
 - [X] Any
-- [/] AsEnumerable
+- [ ] ~~AsEnumerable~~
 - [X] Average
 - [X] Cast
 - [X] Concat
 - [ ] Contains
-- [/] Count
-- [/] DefaultIfEmpty
+- [ ] ~~Count~~
+- [ ] ~~DefaultIfEmpty~~
 - [X] Distinct
 - [ ] ElementAt
 - [ ] ElementAtOrDefault
@@ -26,24 +26,24 @@ LINQ-Support[^1]:
 - [ ] Join
 - [ ] Last
 - [ ] LastOrDefault
-- [/] LongCount
+- [ ] ~~LongCount~~
 - [X] Max
 - [X] Min
 - [X] OfType
 - [X] OrderBy
 - [ ] OrderByDescending
-- [/] Range
-- [/] Repeat
-- [/] Reverse
+- [ ] ~~Range~~
+- [ ] ~~Repeat~~
+- [ ] ~~Reverse~~
 - [ ] Select
 - [ ] SelectMany
 - [ ] SequenceEqual
 - [ ] Single
 - [ ] SingleOrDefault
-- [/] Skip
+- [ ] ~~Skip~~
 - [ ] SkipWhile
 - [X] Sum
-- [/] Take
+- [ ] ~~Take~~
 - [ ] TakeWhile
 - [ ] ThenBy
 - [ ] ThenByDescending
@@ -54,5 +54,3 @@ LINQ-Support[^1]:
 - [ ] Union
 - [X] Where
 - [ ] Zip
-
-[^1]: [ ] stands for not complete, [X] for complete and [/] for not applicable for async
