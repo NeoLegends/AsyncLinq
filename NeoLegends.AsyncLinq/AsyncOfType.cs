@@ -9,7 +9,14 @@ namespace System.Collections.Generic
 {
     public static class AsyncOfType
     {
-        public static async Task<IEnumerable<TOut>> OfType<TIn, TOut>(this IEnumerable<Task<TIn>> collection)
+        public static async Task<IEnumerable<TOut>> OfTypeAsync<TIn, TOut>(this Task<IEnumerable<TIn>> collection)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
+
+            return (await collection).OfType<TOut>();
+        }
+
+        public static async Task<IEnumerable<TOut>> OfTypeAsync<TIn, TOut>(this IEnumerable<Task<TIn>> collection)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 

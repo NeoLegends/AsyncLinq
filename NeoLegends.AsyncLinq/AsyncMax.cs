@@ -9,79 +9,154 @@ namespace System.Collections.Generic
 {
     public static class AsyncMin
     {
-        public static async Task<int> MaxAsync(IEnumerable<Task<int>> source)
+        public static async Task<int> MaxAsync(this Task<IEnumerable<int>> collection)
         {
-            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await Task.WhenAll(source)).Max();
+            return (await collection).Max();
         }
 
-        public static async Task<long> MaxAsync(IEnumerable<Task<long>> source)
+        public static async Task<int> MaxAsync(this IEnumerable<Task<int>> collection)
         {
-            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await Task.WhenAll(source)).Max();
+            return (await Task.WhenAll(collection)).Max();
         }
 
-        public static async Task<float> MaxAsync(IEnumerable<Task<float>> source)
+        public static async Task<long> MaxAsync(this Task<IEnumerable<long>> collection)
         {
-            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await Task.WhenAll(source)).Max();
+            return (await collection).Max();
         }
 
-        public static async Task<double> MaxAsync(IEnumerable<Task<double>> source)
+        public static async Task<long> MaxAsync(this IEnumerable<Task<long>> collection)
         {
-            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await Task.WhenAll(source)).Max();
+            return (await Task.WhenAll(collection)).Max();
         }
 
-        public static async Task<decimal> MaxAsync(IEnumerable<Task<decimal>> source)
+        public static async Task<float> MaxAsync(this Task<IEnumerable<float>> collection)
         {
-            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await Task.WhenAll(source)).Max();
+            return (await collection).Max();
         }
 
-        public static async Task<int> MaxAsync<T>(this IEnumerable<Task<T>> source, Func<T, int> selector)
+        public static async Task<float> MaxAsync(this IEnumerable<Task<float>> collection)
         {
-            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(collection != null);
+
+            return (await Task.WhenAll(collection)).Max();
+        }
+
+        public static async Task<double> MaxAsync(this Task<IEnumerable<double>> collection)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
+
+            return (await collection).Max();
+        }
+
+        public static async Task<double> MaxAsync(this IEnumerable<Task<double>> collection)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
+
+            return (await Task.WhenAll(collection)).Max();
+        }
+
+        public static async Task<decimal> MaxAsync(this Task<IEnumerable<decimal>> collection)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
+
+            return (await collection).Max();
+        }
+
+        public static async Task<decimal> MaxAsync(this IEnumerable<Task<decimal>> collection)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
+
+            return (await Task.WhenAll(collection)).Max();
+        }
+
+        public static async Task<int> MaxAsync<T>(this Task<IEnumerable<T>> collection, Func<T, int> selector)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await Task.WhenAll(source)).Max(selector);
+            return (await collection).Max(selector);
         }
 
-        public static async Task<long> MaxAsync<T>(this IEnumerable<Task<T>> source, Func<T, long> selector)
+        public static async Task<int> MaxAsync<T>(this IEnumerable<Task<T>> collection, Func<T, int> selector)
         {
-            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await Task.WhenAll(source)).Max(selector);
+            return (await Task.WhenAll(collection)).Max(selector);
         }
 
-        public static async Task<float> MaxAsync<T>(this IEnumerable<Task<T>> source, Func<T, float> selector)
+        public static async Task<long> MaxAsync<T>(this Task<IEnumerable<T>> collection, Func<T, long> selector)
         {
-            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await Task.WhenAll(source)).Max(selector);
+            return (await collection).Max(selector);
         }
 
-        public static async Task<double> MaxAsync<T>(this IEnumerable<Task<T>> source, Func<T, double> selector)
+        public static async Task<long> MaxAsync<T>(this IEnumerable<Task<T>> collection, Func<T, long> selector)
         {
-            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await Task.WhenAll(source)).Max(selector);
+            return (await Task.WhenAll(collection)).Max(selector);
         }
 
-        public static async Task<decimal> MaxAsync<T>(this IEnumerable<Task<T>> source, Func<T, decimal> selector)
+        public static async Task<float> MaxAsync<T>(this Task<IEnumerable<T>> collection, Func<T, float> selector)
         {
-            Contract.Requires<ArgumentNullException>(source != null);
+            Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await Task.WhenAll(source)).Max(selector);
+            return (await collection).Max(selector);
+        }
+
+        public static async Task<float> MaxAsync<T>(this IEnumerable<Task<T>> collection, Func<T, float> selector)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
+            Contract.Requires<ArgumentNullException>(selector != null);
+
+            return (await Task.WhenAll(collection)).Max(selector);
+        }
+
+        public static async Task<double> MaxAsync<T>(this Task<IEnumerable<T>> collection, Func<T, double> selector)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
+            Contract.Requires<ArgumentNullException>(selector != null);
+
+            return (await collection).Max(selector);
+        }
+
+        public static async Task<double> MaxAsync<T>(this IEnumerable<Task<T>> collection, Func<T, double> selector)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
+            Contract.Requires<ArgumentNullException>(selector != null);
+
+            return (await Task.WhenAll(collection)).Max(selector);
+        }
+
+        public static async Task<decimal> MaxAsync<T>(this Task<IEnumerable<T>> collection, Func<T, decimal> selector)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
+            Contract.Requires<ArgumentNullException>(selector != null);
+
+            return (await collection).Max(selector);
+        }
+
+        public static async Task<decimal> MaxAsync<T>(this IEnumerable<Task<T>> collection, Func<T, decimal> selector)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
+            Contract.Requires<ArgumentNullException>(selector != null);
+
+            return (await Task.WhenAll(collection)).Max(selector);
         }
     }
 }

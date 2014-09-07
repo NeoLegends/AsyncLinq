@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncCast
+    public static class AsyncToList
     {
-        public static async Task<IEnumerable<TOut>> CastAsync<TIn, TOut>(this Task<IEnumerable<TIn>> collection)
+        public static async Task<List<T>> ToListAsync<T>(this Task<IEnumerable<T>> collection)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await collection).Cast<TOut>();
+            return (await collection).ToList();
         }
 
-        public static async Task<IEnumerable<TOut>> CastAsync<TIn, TOut>(this IEnumerable<Task<TIn>> collection)
+        public static async Task<List<T>> ToListAsync<T>(this IEnumerable<Task<T>> collection)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await Task.WhenAll(collection)).Cast<TOut>();
+            return (await Task.WhenAll(collection)).ToList();
         }
     }
 }

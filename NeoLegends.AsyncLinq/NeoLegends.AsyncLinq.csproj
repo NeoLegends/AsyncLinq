@@ -120,17 +120,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsyncAggregate.cs" />
     <Compile Include="AsyncAll.cs" />
     <Compile Include="AsyncAny.cs" />
     <Compile Include="AsyncCast.cs" />
     <Compile Include="AsyncConcat.cs" />
+    <Compile Include="AsyncContains.cs" />
+    <Compile Include="AsyncElementAtOrDefault.cs" />
+    <Compile Include="AsyncElementAt.cs" />
+    <Compile Include="AsyncExcept.cs" />
     <Compile Include="AsyncFirst.cs" />
     <Compile Include="AsyncFirstOrDefault.cs" />
     <Compile Include="AsyncAverage.cs" />
     <Compile Include="AsyncMin.cs" />
     <Compile Include="AsyncMax.cs" />
     <Compile Include="AsyncOfType.cs" />
+    <Compile Include="AsyncOrderByDescending.cs" />
+    <Compile Include="AsyncOrderBy.cs" />
+    <Compile Include="AsyncSelect.cs" />
+    <Compile Include="AsyncSelectMany.cs" />
+    <Compile Include="AsyncSequenceEqual.cs" />
+    <Compile Include="AsyncToArray.cs" />
+    <Compile Include="AsyncToDictionary.cs" />
+    <Compile Include="AsyncToList.cs" />
     <Compile Include="AsyncWhere.cs" />
+    <Compile Include="AsyncDistinct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AsyncSum.cs" />
   </ItemGroup>

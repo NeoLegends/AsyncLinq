@@ -9,7 +9,15 @@ namespace System.Collections.Generic
 {
     public static class AsyncAny
     {
-        public static async Task<bool> AnyAsync<T>(this IEnumerable<Task<T>> collection, Predicate<T> predicate)
+        public static async Task<bool> AnyAsync<T>(this Task<IEnumerable<T>> collection, Func<T, bool> predicate)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
+            Contract.Requires<ArgumentNullException>(predicate != null);
+
+            return (await collection).Any(predicate);
+        }
+
+        public static async Task<bool> AnyAsync<T>(this IEnumerable<Task<T>> collection, Func<T, bool> predicate)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);

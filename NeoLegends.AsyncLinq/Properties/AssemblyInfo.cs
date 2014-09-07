@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die mit einer Assembly verknüpft sind.
 [assembly: AssemblyTitle("NeoLegends.AsyncLinq")]
-[assembly: AssemblyDescription("Contains LINQ-to-Object extension methods for working with asynchronous Tasks.")]
+[assembly: AssemblyDescription("A .NET library containing LINQ-to-Object extension methods for working with TPL Tasks.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Moritz Gunz")]
 [assembly: AssemblyProduct("NeoLegends.AsyncLinq")]

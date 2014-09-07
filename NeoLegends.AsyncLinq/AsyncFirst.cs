@@ -9,30 +9,32 @@ namespace System.Collections.Generic
 {
     public static class AsyncFirst
     {
-        public static Task<T> FirstAsync<T>(this IEnumerable<Task<T>> collection)
+        public static async Task<T> FirstAsync<T>(this Task<IEnumerable<T>> collection)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            IList<Task<T>> list = collection as IList<Task<T>>;
-            if (list != null && list.Count > 0)
-            {
-                return list[0];
-            }
-
-            using (IEnumerator<Task<T>> enumerator = collection.GetEnumerator())
-            {
-                if (enumerator.MoveNext())
-                {
-                    return enumerator.Current;
-                }
-                else
-                {
-                    throw new InvalidOperationException("The source sequence was empty.");
-                }
-            }
+            return (await collection).First();
         }
 
-        public static async Task<T> FirstAsync<T>(this IEnumerable<Task<T>> collection, Predicate<T> predicate)
+        public static Task<T> FirstAsync<T>(this IEnumerable<Task<T>> collection)
+        {
+            // Even though this method does nothing more than the regular .First
+            // we have it because it would be confusing if it was missing.
+
+            Contract.Requires<ArgumentNullException>(collection != null);
+
+            return collection.First();
+        }
+
+        public static async Task<T> FirstAsync<T>(this Task<IEnumerable<T>> collection, Func<T, bool> predicate)
+        {
+            Contract.Requires<ArgumentNullException>(collection != null);
+            Contract.Requires<ArgumentNullException>(predicate != null);
+
+            return (await collection).First(predicate);
+        }
+
+        public static async Task<T> FirstAsync<T>(this IEnumerable<Task<T>> collection, Func<T, bool> predicate)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);
@@ -56,7 +58,7 @@ namespace System.Collections.Generic
             return (await Task.WhenAny(collection)).Result;
         }
 
-        public static async Task<T> FirstFinishedAsync<T>(this IEnumerable<Task<T>> collection, Predicate<T> predicate)
+        public static async Task<T> FirstFinishedAsync<T>(this IEnumerable<Task<T>> collection, Func<T, bool> predicate)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);
