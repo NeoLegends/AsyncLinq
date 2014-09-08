@@ -9,7 +9,9 @@ namespace System.Collections.Generic
 {
     public static class AsyncOrderBy
     {
-        public static async Task<IEnumerable<TSource>> OrderByAsync<TSource, TKey>(this Task<IEnumerable<TSource>> collection, Func<TSource, TKey> selector)
+        public static async Task<IOrderedEnumerable<TSource>> OrderByAsync<TSource, TKey>(
+            this Task<IEnumerable<TSource>> collection, 
+            Func<TSource, TKey> selector)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
@@ -17,7 +19,9 @@ namespace System.Collections.Generic
             return (await collection).OrderBy(selector);
         }
 
-        public static async Task<IEnumerable<TSource>> OrderByAsync<TSource, TKey>(this IEnumerable<Task<TSource>> collection, Func<TSource, TKey> selector)
+        public static async Task<IOrderedEnumerable<TSource>> OrderByAsync<TSource, TKey>(
+            this IEnumerable<Task<TSource>> collection, 
+            Func<TSource, TKey> selector)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
@@ -25,7 +29,10 @@ namespace System.Collections.Generic
             return (await Task.WhenAll(collection)).OrderBy(selector);
         }
 
-        public static async Task<IEnumerable<TSource>> OrderByAsync<TSource, TKey>(this Task<IEnumerable<TSource>> collection, Func<TSource, TKey> selector, IComparer<TKey> comparer)
+        public static async Task<IOrderedEnumerable<TSource>> OrderByAsync<TSource, TKey>(
+            this Task<IEnumerable<TSource>> collection, 
+            Func<TSource, TKey> selector, 
+            IComparer<TKey> comparer)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
@@ -34,7 +41,10 @@ namespace System.Collections.Generic
             return (await collection).OrderBy(selector, comparer);
         }
 
-        public static async Task<IEnumerable<TSource>> OrderByAsync<TSource, TKey>(this IEnumerable<Task<TSource>> collection, Func<TSource, TKey> selector, IComparer<TKey> comparer)
+        public static async Task<IOrderedEnumerable<TSource>> OrderByAsync<TSource, TKey>(
+            this IEnumerable<Task<TSource>> collection, 
+            Func<TSource, TKey> selector, 
+            IComparer<TKey> comparer)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);

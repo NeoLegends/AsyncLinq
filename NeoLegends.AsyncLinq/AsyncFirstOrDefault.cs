@@ -18,7 +18,7 @@ namespace System.Collections.Generic
 
         public static Task<T> FirstOrDefaultAsync<T>(this IEnumerable<Task<T>> collection)
         {
-            // Even though this method does nothing more than the regular .First
+            // Even though this method does nothing more than the regular .FirstOrDefault
             // we have it because it would be confusing if it was missing.
 
             Contract.Requires<ArgumentNullException>(collection != null);

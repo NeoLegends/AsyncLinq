@@ -20,12 +20,12 @@ LINQ-Support:
 - [X] Except
 - [X] First
 - [X] FirstOrDefault
-- [ ] GroupBy
+- [X] GroupBy
 - [ ] GroupJoin
-- [ ] Intersect
+- [X] Intersect
 - [ ] Join
-- [ ] Last
-- [ ] LastOrDefault
+- [X] Last
+- [X] LastOrDefault
 - [ ] ~~LongCount~~
 - [X] Max
 - [X] Min
@@ -51,6 +51,6 @@ LINQ-Support:
 - [X] ToDictionary
 - [X] ToList
 - [ ] ToLookup
-- [ ] Union
+- [X] Union
 - [X] Where
-- [ ] Zip
+- [X] Zip

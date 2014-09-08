@@ -130,8 +130,12 @@
     <Compile Include="AsyncElementAt.cs" />
     <Compile Include="AsyncExcept.cs" />
     <Compile Include="AsyncFirst.cs" />
+    <Compile Include="AsyncGroupBy.cs" />
+    <Compile Include="AsyncIntersect.cs" />
+    <Compile Include="AsyncLastOrDefault.cs" />
     <Compile Include="AsyncFirstOrDefault.cs" />
     <Compile Include="AsyncAverage.cs" />
+    <Compile Include="AsyncLast.cs" />
     <Compile Include="AsyncMin.cs" />
     <Compile Include="AsyncMax.cs" />
     <Compile Include="AsyncOfType.cs" />
@@ -140,11 +144,14 @@
     <Compile Include="AsyncSelect.cs" />
     <Compile Include="AsyncSelectMany.cs" />
     <Compile Include="AsyncSequenceEqual.cs" />
+    <Compile Include="AsyncThenBy.cs" />
     <Compile Include="AsyncToArray.cs" />
     <Compile Include="AsyncToDictionary.cs" />
     <Compile Include="AsyncToList.cs" />
+    <Compile Include="AsyncUnion.cs" />
     <Compile Include="AsyncWhere.cs" />
     <Compile Include="AsyncDistinct.cs" />
+    <Compile Include="AsyncZip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AsyncSum.cs" />
   </ItemGroup>
