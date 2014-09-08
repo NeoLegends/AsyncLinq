@@ -16,16 +16,6 @@ namespace System.Collections.Generic
             return (await collection).First();
         }
 
-        public static Task<T> FirstAsync<T>(this IEnumerable<Task<T>> collection)
-        {
-            // Even though this method does nothing more than the regular .First
-            // we have it because it would be confusing if it was missing.
-
-            Contract.Requires<ArgumentNullException>(collection != null);
-
-            return collection.First();
-        }
-
         public static async Task<T> FirstAsync<T>(this Task<IEnumerable<T>> collection, Func<T, bool> predicate)
         {
             Contract.Requires<ArgumentNullException>(collection != null);

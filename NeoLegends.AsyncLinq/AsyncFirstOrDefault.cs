@@ -16,16 +16,6 @@ namespace System.Collections.Generic
             return (await collection).FirstOrDefault();
         }
 
-        public static Task<T> FirstOrDefaultAsync<T>(this IEnumerable<Task<T>> collection)
-        {
-            // Even though this method does nothing more than the regular .FirstOrDefault
-            // we have it because it would be confusing if it was missing.
-
-            Contract.Requires<ArgumentNullException>(collection != null);
-
-            return collection.FirstOrDefault();
-        }
-
         public static async Task<T> FirstOrDefaultAsync<T>(this Task<IEnumerable<T>> collection, Func<T, bool> predicate)
         {
             Contract.Requires<ArgumentNullException>(collection != null);

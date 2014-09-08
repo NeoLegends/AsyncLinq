@@ -126,6 +126,7 @@
     <Compile Include="AsyncCast.cs" />
     <Compile Include="AsyncConcat.cs" />
     <Compile Include="AsyncContains.cs" />
+    <Compile Include="AsyncCount.cs" />
     <Compile Include="AsyncElementAtOrDefault.cs" />
     <Compile Include="AsyncElementAt.cs" />
     <Compile Include="AsyncExcept.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="AsyncFirstOrDefault.cs" />
     <Compile Include="AsyncAverage.cs" />
     <Compile Include="AsyncLast.cs" />
+    <Compile Include="AsyncLongCount.cs" />
     <Compile Include="AsyncMin.cs" />
     <Compile Include="AsyncMax.cs" />
     <Compile Include="AsyncOfType.cs" />

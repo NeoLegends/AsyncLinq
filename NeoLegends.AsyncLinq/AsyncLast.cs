@@ -16,16 +16,6 @@ namespace System.Collections.Generic
             return (await collection).Last();
         }
 
-        public static Task<T> LastAsync<T>(this IEnumerable<Task<T>> collection)
-        {
-            // Even though this method does nothing more than the regular .Last
-            // we have it because it would be confusing if it was missing (and the others are not).
-
-            Contract.Requires<ArgumentNullException>(collection != null);
-
-            return collection.Last();
-        }
-
         public static async Task<T> LastAsync<T>(this Task<IEnumerable<T>> collection, Func<T, bool> predicate)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
