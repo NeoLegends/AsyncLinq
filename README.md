@@ -3,7 +3,7 @@ AsyncLinq
 
 A collection of extension methods providing support for TPL tasks in LINQ-to-Objects.
 
-LINQ-Support:
+LINQ-Support (for struck-through see below):
 - [X] Aggregate
 - [X] All
 - [X] Any
@@ -12,7 +12,7 @@ LINQ-Support:
 - [X] Cast
 - [X] Concat
 - [X] Contains
-- [ ] ~~Count~~
+- [ ] Count
 - [ ] ~~DefaultIfEmpty~~
 - [X] Distinct
 - [X] ElementAt
@@ -34,7 +34,7 @@ LINQ-Support:
 - [X] OrderByDescending
 - [ ] ~~Range~~
 - [ ] ~~Repeat~~
-- [ ] ~~Reverse~~
+- [ ] Reverse
 - [X] Select
 - [X] SelectMany
 - [X] SequenceEqual
@@ -54,3 +54,5 @@ LINQ-Support:
 - [X] Union
 - [X] Where
 - [X] Zip
+
+Struck-through items do not make sense in combination with async. A .Skip-method does not need to wait for the tasks to complete to be able to skip a certain amount of items.
