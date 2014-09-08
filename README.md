@@ -12,7 +12,7 @@ LINQ-Support (for struck-through see below):
 - [X] Cast
 - [X] Concat
 - [X] Contains
-- [ ] Count
+- [X] Count
 - [ ] ~~DefaultIfEmpty~~
 - [X] Distinct
 - [X] ElementAt
@@ -26,7 +26,7 @@ LINQ-Support (for struck-through see below):
 - [ ] Join
 - [X] Last
 - [X] LastOrDefault
-- [ ] LongCount
+- [X] LongCount
 - [X] Max
 - [X] Min
 - [X] OfType
@@ -34,23 +34,23 @@ LINQ-Support (for struck-through see below):
 - [X] OrderByDescending
 - [ ] ~~Range~~
 - [ ] ~~Repeat~~
-- [ ] Reverse
+- [X] Reverse
 - [X] Select
 - [X] SelectMany
 - [X] SequenceEqual
-- [ ] Single
-- [ ] SingleOrDefault
-- [ ] ~~Skip~~
-- [ ] SkipWhile
+- [X] Single
+- [X] SingleOrDefault
+- [X] Skip
+- [X] SkipWhile
 - [X] Sum
-- [ ] ~~Take~~
-- [ ] TakeWhile
+- [X] Take
+- [X] TakeWhile
 - [ ] ThenBy
 - [ ] ThenByDescending
 - [X] ToArray
 - [X] ToDictionary
 - [X] ToList
-- [ ] ToLookup
+- [X] ToLookup
 - [X] Union
 - [X] Where
 - [X] Zip
