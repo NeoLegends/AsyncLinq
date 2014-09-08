@@ -26,7 +26,7 @@ LINQ-Support (for struck-through see below):
 - [ ] Join
 - [X] Last
 - [X] LastOrDefault
-- [ ] ~~LongCount~~
+- [ ] LongCount
 - [X] Max
 - [X] Min
 - [X] OfType
