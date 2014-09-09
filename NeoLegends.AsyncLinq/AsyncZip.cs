@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncZip
+    public static partial class AsyncEnumerable
     {
         public static async Task<IEnumerable<TResult>> ZipAsync<TFirst, TSecond, TResult>(
             this Task<IEnumerable<TFirst>> first, 

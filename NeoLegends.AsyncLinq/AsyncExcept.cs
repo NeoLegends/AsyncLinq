@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncExcept
+    public static partial class AsyncEnumerable
     {
         public static async Task<IEnumerable<T>> ExceptAsync<T>(this Task<IEnumerable<T>> first, Task<IEnumerable<T>> second)
         {

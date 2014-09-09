@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncUnion
+    public static partial class AsyncEnumerable
     {
         public static async Task<IEnumerable<T>> UnionAsync<T>(this Task<IEnumerable<T>> first, Task<IEnumerable<T>> second)
         {

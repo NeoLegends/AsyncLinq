@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncGroupBy
+    public static partial class AsyncEnumerable
     {
         public static async Task<IEnumerable<IGrouping<TKey, T>>> GroupByAsync<T, TKey>(this Task<IEnumerable<T>> collection, Func<T, TKey> keySelector)
         {

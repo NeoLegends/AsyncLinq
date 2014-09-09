@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncAverage
+    public static partial class AsyncEnumerable
     {
         public static async Task<double> AverageAsync(this Task<IEnumerable<int>> collection)
         {

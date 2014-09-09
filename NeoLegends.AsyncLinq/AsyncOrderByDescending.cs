@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncOrderByDescending
+    public static partial class AsyncEnumerable
     {
         public static async Task<IEnumerable<TSource>> OrderByDescendingAsync<TSource, TKey>(
             this Task<IEnumerable<TSource>> collection, 

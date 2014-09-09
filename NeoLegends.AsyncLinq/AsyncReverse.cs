@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncReverse
+    public static partial class AsyncEnumerable
     {
         public static async Task<IEnumerable<T>> ReverseAsync<T>(this Task<IEnumerable<T>> collection)
         {

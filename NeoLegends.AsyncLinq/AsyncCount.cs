@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncCount
+    public static partial class AsyncEnumerable
     {
         public static async Task<int> CountAsync<T>(this Task<IEnumerable<T>> collection)
         {

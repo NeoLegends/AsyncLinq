@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncToLookup
+    public static partial class AsyncEnumerable
     {
         public static async Task<ILookup<TKey, T>> ToLookupAsync<T, TKey>(this Task<IEnumerable<T>> collection, Func<T, TKey> keySelector)
         {

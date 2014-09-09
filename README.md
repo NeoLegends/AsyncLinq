@@ -21,9 +21,9 @@ LINQ-Support (for struck-through see below):
 - [X] First
 - [X] FirstOrDefault
 - [X] GroupBy
-- [ ] GroupJoin
+- [X] GroupJoin
 - [X] Intersect
-- [ ] Join
+- [X] Join
 - [X] Last
 - [X] LastOrDefault
 - [X] LongCount
@@ -45,8 +45,8 @@ LINQ-Support (for struck-through see below):
 - [X] Sum
 - [X] Take
 - [X] TakeWhile
-- [ ] ThenBy
-- [ ] ThenByDescending
+- [X] ThenBy
+- [X] ThenByDescending
 - [X] ToArray
 - [X] ToDictionary
 - [X] ToList

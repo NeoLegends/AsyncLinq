@@ -132,7 +132,9 @@
     <Compile Include="AsyncExcept.cs" />
     <Compile Include="AsyncFirst.cs" />
     <Compile Include="AsyncGroupBy.cs" />
+    <Compile Include="AsyncGroupJoin.cs" />
     <Compile Include="AsyncIntersect.cs" />
+    <Compile Include="AsyncJoin.cs" />
     <Compile Include="AsyncLastOrDefault.cs" />
     <Compile Include="AsyncFirstOrDefault.cs" />
     <Compile Include="AsyncAverage.cs" />
@@ -154,6 +156,7 @@
     <Compile Include="AsyncTake.cs" />
     <Compile Include="AsyncTakeWhile.cs" />
     <Compile Include="AsyncThenBy.cs" />
+    <Compile Include="AsyncThenByDescending.cs" />
     <Compile Include="AsyncToArray.cs" />
     <Compile Include="AsyncToDictionary.cs" />
     <Compile Include="AsyncToList.cs" />

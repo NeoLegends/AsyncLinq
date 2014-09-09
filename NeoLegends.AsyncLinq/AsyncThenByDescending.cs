@@ -9,15 +9,15 @@ namespace System.Collections.Generic
 {
     public static partial class AsyncEnumerable
     {
-        public static async Task<IEnumerable<T>> ThenByAsync<T, TKey>(this Task<IOrderedEnumerable<T>> collection, Func<T, TKey> keySelector)
+        public static async Task<IEnumerable<T>> ThenByDescendingAsync<T, TKey>(this Task<IOrderedEnumerable<T>> collection, Func<T, TKey> keySelector)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(keySelector != null);
 
-            return (await collection).ThenBy(keySelector);
+            return (await collection).ThenByDescending(keySelector);
         }
 
-        public static async Task<IEnumerable<T>> ThenByAsync<T, TKey>(
+        public static async Task<IEnumerable<T>> ThenByDescendingAsync<T, TKey>(
             this Task<IOrderedEnumerable<T>> collection,
             Func<T, TKey> keySelector,
             IComparer<TKey> comparer)
@@ -25,9 +25,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(keySelector != null);
 
-            return (await collection).ThenBy(keySelector, comparer);
+            return (await collection).ThenByDescending(keySelector, comparer);
         }
-
-        // No implementation for IOrderedEnumerable<Task<T>> here, I'm too lazy to implement the required classes / structs :P
     }
 }

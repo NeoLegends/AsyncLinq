@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncOfType
+    public static partial class AsyncEnumerable
     {
         public static async Task<IEnumerable<TOut>> OfTypeAsync<TIn, TOut>(this Task<IEnumerable<TIn>> collection)
         {

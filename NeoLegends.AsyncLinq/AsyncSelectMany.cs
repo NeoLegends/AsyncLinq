@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncSelectMany
+    public static partial class AsyncEnumerable
     {
         public static async Task<IEnumerable<TOut>> SelectManyAsync<TIn, TOut>(this Task<IEnumerable<TIn>> collection, Func<TIn, IEnumerable<TOut>> selector)
         {

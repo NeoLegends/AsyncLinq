@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncCast
+    public static partial class AsyncEnumerable
     {
         public static async Task<IEnumerable<TOut>> CastAsync<TIn, TOut>(this Task<IEnumerable<TIn>> collection)
         {

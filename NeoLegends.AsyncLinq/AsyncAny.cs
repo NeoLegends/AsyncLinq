@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncAny
+    public static partial class AsyncEnumerable
     {
         public static async Task<bool> AnyAsync<T>(this Task<IEnumerable<T>> collection, Func<T, bool> predicate)
         {

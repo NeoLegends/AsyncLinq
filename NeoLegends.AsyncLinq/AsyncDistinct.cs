@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncDistinct
+    public static partial class AsyncEnumerable
     {
         public static async Task<IEnumerable<T>> DistinctAsync<T>(this Task<IEnumerable<T>> collection)
         {

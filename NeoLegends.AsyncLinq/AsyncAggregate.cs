@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncAggregate
+    public static partial class AsyncEnumerable
     {
         public static async Task<T> AggregateAsync<T>(this Task<IEnumerable<T>> collection, Func<T, T, T> aggregator)
         {

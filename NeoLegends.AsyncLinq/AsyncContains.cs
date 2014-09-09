@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncContains
+    public static partial class AsyncEnumerable
     {
         public static async Task<bool> ContainsAsync<T>(this Task<IEnumerable<T>> collection, T item)
         {

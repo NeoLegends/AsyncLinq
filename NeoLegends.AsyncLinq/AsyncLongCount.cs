@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncLongCount
+    public static partial class AsyncEnumerable
     {
         public static async Task<long> LongCountAsync<T>(this Task<IEnumerable<T>> collection)
         {
@@ -24,7 +24,7 @@ namespace System.Collections.Generic
             return (await collection).LongCount(predicate);
         }
 
-        public static async Task<long> CountAsync<T>(this IEnumerable<Task<T>> collection, Func<T, bool> predicate)
+        public static async Task<long> LongCountAsync<T>(this IEnumerable<Task<T>> collection, Func<T, bool> predicate)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);

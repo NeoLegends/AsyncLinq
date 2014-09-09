@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncMax
+    public static partial class AsyncEnumerable
     {
         public static async Task<int> MinAsync(this Task<IEnumerable<int>> collection)
         {

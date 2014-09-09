@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncSkipWhile
+    public static partial class AsyncEnumerable
     {
         public static async Task<IEnumerable<T>> SkipWhileAsync<T>(this Task<IEnumerable<T>> collection, Func<T, bool> predicate)
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncSequenceEqual
+    public static partial class AsyncEnumerable
     {
         public static async Task<bool> SequenceEqualAsync<T>(this Task<IEnumerable<T>> collection, Task<IEnumerable<T>> comparand)
         {

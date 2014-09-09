@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncToArray
+    public static partial class AsyncEnumerable
     {
         public static async Task<T[]> ToArrayAsync<T>(this Task<IEnumerable<T>> collection)
         {

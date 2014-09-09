@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncSum
+    public static partial class AsyncEnumerable
     {
         public static async Task<int> SumAsync(this Task<IEnumerable<int>> collection)
         {

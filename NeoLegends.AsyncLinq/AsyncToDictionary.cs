@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System.Collections.Generic
 {
-    public static class AsyncToDictionary
+    public static partial class AsyncEnumerable
     {
         public static async Task<Dictionary<TKey, TSource>> ToDictionaryAsync<TSource, TKey>(
             this Task<IEnumerable<TSource>> collection, 
