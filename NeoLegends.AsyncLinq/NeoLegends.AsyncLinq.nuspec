@@ -11,7 +11,7 @@
         <description>A .NET library containing LINQ-to-Object extension methods for working with TPL Tasks.</description>
         <releaseNotes>Initial Release.</releaseNotes>
         <copyright>Copyright 2014 Moritz Gunz</copyright>
-        <tags>linq to objects extension async await task tpl linq-to-objects</tags>
+        <tags>Linq AsyncLinq to objects Extension async await Task TPL Linq-to-Objects</tags>
         <references>
             <reference file="NeoLegends.AsyncLinq.dll" />
         </references>
