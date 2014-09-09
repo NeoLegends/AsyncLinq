@@ -2,14 +2,14 @@
 <package >
     <metadata>
         <id>NeoLegends.AsyncLinq</id>
-        <version>1.0.0.1</version>
+        <version>1.0.0.2</version>
         <authors>Moritz Gunz</authors> 
         <owners>Moritz Gunz</owners>
         <licenseUrl>https://github.com/NeoLegends/AsyncLinq/blob/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/NeoLegends/AsyncLinq</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>A .NET library containing LINQ-to-Object extension methods for working with TPL Tasks.</description>
-        <releaseNotes>Assembly now strongly signed.</releaseNotes>
+        <releaseNotes>CodeContracts Reference Assemblies should now be deployed properly.</releaseNotes>
         <copyright>Copyright 2014 Moritz Gunz</copyright>
         <tags>Linq AsyncLinq to objects Extension async await Task TPL Linq-to-Objects</tags>
         <references>
@@ -19,8 +19,6 @@
     <files>
         <file src="bin\Release\NeoLegends.AsyncLinq.dll" target="lib/net45" />
         <file src="bin\Release\NeoLegends.AsyncLinq.xml" target="lib/net45" />
-        <file src="bin\Release\NeoLegends.AsyncLinq.pdb" target="lib/net45" />
-        <file src="bin\Release\CodeContracts\*.Contracts.dll" target="lib/net45/CodeContracts" />
-        <file src="bin\Release\CodeContracts\*.Contracts.pdb" target="lib/net45/CodeContracts" />
+        <file src="bin\Release\CodeContracts\*.Contracts.dll" target="content/CodeContracts" />
     </files>
 </package>
