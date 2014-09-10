@@ -14,7 +14,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(keySelector != null);
 
-            return (await collection).ThenByDescending(keySelector);
+            return (await collection.ConfigureAwait(false)).ThenByDescending(keySelector);
         }
 
         public static async Task<IEnumerable<T>> ThenByDescendingAsync<T, TKey>(
@@ -25,7 +25,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(keySelector != null);
 
-            return (await collection).ThenByDescending(keySelector, comparer);
+            return (await collection.ConfigureAwait(false)).ThenByDescending(keySelector, comparer);
         }
     }
 }

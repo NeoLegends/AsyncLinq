@@ -14,7 +14,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await collection).Select(selector);
+            return (await collection.ConfigureAwait(false)).Select(selector);
         }
 
         public static async Task<IEnumerable<TOut>> SelectAsync<TIn, TOut>(this IEnumerable<Task<TIn>> collection, Func<TIn, TOut> selector)
@@ -22,7 +22,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await Task.WhenAll(collection)).Select(selector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Select(selector);
         }
 
         public static async Task<IEnumerable<TOut>> SelectAsync<TIn, TOut>(this Task<IEnumerable<TIn>> collection, Func<TIn, int, TOut> selector)
@@ -30,7 +30,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await collection).Select(selector);
+            return (await collection.ConfigureAwait(false)).Select(selector);
         }
 
         public static async Task<IEnumerable<TOut>> SelectAsync<TIn, TOut>(this IEnumerable<Task<TIn>> collection, Func<TIn, int, TOut> selector)
@@ -38,7 +38,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await Task.WhenAll(collection)).Select(selector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Select(selector);
         }
     }
 }

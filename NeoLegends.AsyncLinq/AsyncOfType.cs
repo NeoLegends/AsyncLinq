@@ -13,14 +13,14 @@ namespace System.Collections.Generic
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await collection).OfType<TOut>();
+            return (await collection.ConfigureAwait(false)).OfType<TOut>();
         }
 
         public static async Task<IEnumerable<TOut>> OfTypeAsync<TIn, TOut>(this IEnumerable<Task<TIn>> collection)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await Task.WhenAll(collection)).OfType<TOut>();
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).OfType<TOut>();
         }
     }
 }

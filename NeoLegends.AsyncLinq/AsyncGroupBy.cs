@@ -14,7 +14,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(keySelector != null);
 
-            return (await collection).GroupBy(keySelector);
+            return (await collection.ConfigureAwait(false)).GroupBy(keySelector);
         }
 
         public static async Task<IEnumerable<IGrouping<TKey, T>>> GroupByAsync<T, TKey>(this IEnumerable<Task<T>> collection, Func<T, TKey> keySelector)
@@ -22,7 +22,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(keySelector != null);
 
-            return (await Task.WhenAll(collection)).GroupBy(keySelector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).GroupBy(keySelector);
         }
 
         public static async Task<IEnumerable<IGrouping<TKey, T>>> GroupByAsync<T, TKey>(
@@ -34,7 +34,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await collection).GroupBy(keySelector, keyComparer);
+            return (await collection.ConfigureAwait(false)).GroupBy(keySelector, keyComparer);
         }
 
         public static async Task<IEnumerable<IGrouping<TKey, T>>> GroupByAsync<T, TKey>(
@@ -46,7 +46,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await Task.WhenAll(collection)).GroupBy(keySelector, keyComparer);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).GroupBy(keySelector, keyComparer);
         }
 
         public static async Task<IEnumerable<IGrouping<TKey, TResult>>> GroupByAsync<T, TKey, TResult>(
@@ -58,7 +58,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(valueSelector != null);
 
-            return (await collection).GroupBy(keySelector, valueSelector);
+            return (await collection.ConfigureAwait(false)).GroupBy(keySelector, valueSelector);
         }
 
         public static async Task<IEnumerable<IGrouping<TKey, TResult>>> GroupByAsync<T, TKey, TResult>(
@@ -70,7 +70,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(valueSelector != null);
 
-            return (await Task.WhenAll(collection)).GroupBy(keySelector, valueSelector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).GroupBy(keySelector, valueSelector);
         }
 
         public static async Task<IEnumerable<IGrouping<TKey, TResult>>> GroupByAsync<T, TKey, TResult>(
@@ -84,7 +84,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(valueSelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await collection).GroupBy(keySelector, valueSelector, keyComparer);
+            return (await collection.ConfigureAwait(false)).GroupBy(keySelector, valueSelector, keyComparer);
         }
 
         public static async Task<IEnumerable<IGrouping<TKey, TResult>>> GroupByAsync<T, TKey, TResult>(
@@ -98,7 +98,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(valueSelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await Task.WhenAll(collection)).GroupBy(keySelector, valueSelector, keyComparer);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).GroupBy(keySelector, valueSelector, keyComparer);
         }
 
         public static async Task<IEnumerable<TResult>> GroupByAsync<T, TKey, TResult>(
@@ -110,7 +110,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await collection).GroupBy(keySelector, resultSelector);
+            return (await collection.ConfigureAwait(false)).GroupBy(keySelector, resultSelector);
         }
 
         public static async Task<IEnumerable<TResult>> GroupByAsync<T, TKey, TResult>(
@@ -122,7 +122,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await Task.WhenAll(collection)).GroupBy(keySelector, resultSelector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).GroupBy(keySelector, resultSelector);
         }
 
         public static async Task<IEnumerable<TResult>> GroupByAsync<T, TKey, TResult>(
@@ -136,7 +136,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(resultSelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await collection).GroupBy(keySelector, resultSelector, keyComparer);
+            return (await collection.ConfigureAwait(false)).GroupBy(keySelector, resultSelector, keyComparer);
         }
 
         public static async Task<IEnumerable<TResult>> GroupByAsync<T, TKey, TResult>(
@@ -150,7 +150,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(resultSelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await Task.WhenAll(collection)).GroupBy(keySelector, resultSelector, keyComparer);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).GroupBy(keySelector, resultSelector, keyComparer);
         }
 
         public static async Task<IEnumerable<TResult>> GroupByAsync<T, TKey, TElement, TResult>(
@@ -164,7 +164,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(elementSelector != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await collection).GroupBy(keySelector, elementSelector, resultSelector);
+            return (await collection.ConfigureAwait(false)).GroupBy(keySelector, elementSelector, resultSelector);
         }
 
         public static async Task<IEnumerable<TResult>> GroupByAsync<T, TKey, TElement, TResult>(
@@ -178,7 +178,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(elementSelector != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await Task.WhenAll(collection)).GroupBy(keySelector, elementSelector, resultSelector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).GroupBy(keySelector, elementSelector, resultSelector);
         }
 
         public static async Task<IEnumerable<TResult>> GroupByAsync<T, TKey, TElement, TResult>(
@@ -194,7 +194,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(resultSelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await collection).GroupBy(keySelector, elementSelector, resultSelector, keyComparer);
+            return (await collection.ConfigureAwait(false)).GroupBy(keySelector, elementSelector, resultSelector, keyComparer);
         }
 
         public static async Task<IEnumerable<TResult>> GroupByAsync<T, TKey, TElement, TResult>(
@@ -210,7 +210,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(resultSelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await Task.WhenAll(collection)).GroupBy(keySelector, elementSelector, resultSelector, keyComparer);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).GroupBy(keySelector, elementSelector, resultSelector, keyComparer);
         }
     }
 }

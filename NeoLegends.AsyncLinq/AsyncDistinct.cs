@@ -13,14 +13,14 @@ namespace System.Collections.Generic
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await collection).Distinct();
+            return (await collection.ConfigureAwait(false)).Distinct();
         }
 
         public static async Task<IEnumerable<T>> DistinctAsync<T>(this IEnumerable<Task<T>> collection)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await Task.WhenAll(collection)).Distinct();
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Distinct();
         }
 
         public static async Task<IEnumerable<T>> DistinctAsync<T>(this Task<IEnumerable<T>> collection, IEqualityComparer<T> comparer)
@@ -28,7 +28,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(comparer != null);
 
-            return (await collection).Distinct(comparer);
+            return (await collection.ConfigureAwait(false)).Distinct(comparer);
         }
 
         public static async Task<IEnumerable<T>> DistinctAsync<T>(this IEnumerable<Task<T>> collection, IEqualityComparer<T> comparer)
@@ -36,7 +36,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(comparer != null);
 
-            return (await Task.WhenAll(collection)).Distinct(comparer);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Distinct(comparer);
         }
     }
 }

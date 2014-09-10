@@ -13,14 +13,14 @@ namespace System.Collections.Generic
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await collection).Contains(item);
+            return (await collection.ConfigureAwait(false)).Contains(item);
         }
 
         public static async Task<bool> ContainsAsync<T>(this IEnumerable<Task<T>> collection, T item)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await Task.WhenAll(collection)).Contains(item);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Contains(item);
         }
 
         public static async Task<bool> ContainsAsync<T>(this Task<IEnumerable<T>> collection, T item, IEqualityComparer<T> comparer)
@@ -28,7 +28,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(comparer != null);
 
-            return (await collection).Contains(item, comparer);
+            return (await collection.ConfigureAwait(false)).Contains(item, comparer);
         }
 
         public static async Task<bool> ContainsAsync<T>(this IEnumerable<Task<T>> collection, T item, IEqualityComparer<T> comparer)
@@ -36,7 +36,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(comparer != null);
 
-            return (await Task.WhenAll(collection)).Contains(item, comparer);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Contains(item, comparer);
         }
     }
 }

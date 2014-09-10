@@ -18,7 +18,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(second != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await first).Zip(await second, resultSelector);
+            return (await first.ConfigureAwait(false)).Zip(await second.ConfigureAwait(false), resultSelector);
         }
 
         public static async Task<IEnumerable<TResult>> ZipAsync<TFirst, TSecond, TResult>(
@@ -30,7 +30,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(second != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await Task.WhenAll(first)).Zip(await Task.WhenAll(second), resultSelector);
+            return (await Task.WhenAll(first).ConfigureAwait(false)).Zip(await Task.WhenAll(second).ConfigureAwait(false), resultSelector);
         }
     }
 }

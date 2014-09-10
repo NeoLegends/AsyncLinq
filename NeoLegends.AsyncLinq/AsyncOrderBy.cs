@@ -16,7 +16,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await collection).OrderBy(selector);
+            return (await collection.ConfigureAwait(false)).OrderBy(selector);
         }
 
         public static async Task<IOrderedEnumerable<TSource>> OrderByAsync<TSource, TKey>(
@@ -26,7 +26,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await Task.WhenAll(collection)).OrderBy(selector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).OrderBy(selector);
         }
 
         public static async Task<IOrderedEnumerable<TSource>> OrderByAsync<TSource, TKey>(
@@ -38,7 +38,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(selector != null);
             Contract.Requires<ArgumentNullException>(comparer != null);
 
-            return (await collection).OrderBy(selector, comparer);
+            return (await collection.ConfigureAwait(false)).OrderBy(selector, comparer);
         }
 
         public static async Task<IOrderedEnumerable<TSource>> OrderByAsync<TSource, TKey>(
@@ -50,7 +50,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(selector != null);
             Contract.Requires<ArgumentNullException>(comparer != null);
 
-            return (await Task.WhenAll(collection)).OrderBy(selector, comparer);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).OrderBy(selector, comparer);
         }
     }
 }

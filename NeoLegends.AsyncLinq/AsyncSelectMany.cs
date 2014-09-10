@@ -14,7 +14,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await collection).SelectMany(selector);
+            return (await collection.ConfigureAwait(false)).SelectMany(selector);
         }
 
         public static async Task<IEnumerable<TOut>> SelectManyAsync<TIn, TOut>(this IEnumerable<Task<TIn>> collection, Func<TIn, IEnumerable<TOut>> selector)
@@ -22,7 +22,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
 
-            return (await Task.WhenAll(collection)).SelectMany(selector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).SelectMany(selector);
         }
 
         public static async Task<IEnumerable<TOut>> SelectManyAsync<TIn, TCollection, TOut>(
@@ -34,7 +34,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collectionSelector != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await collection).SelectMany(collectionSelector, resultSelector);
+            return (await collection.ConfigureAwait(false)).SelectMany(collectionSelector, resultSelector);
         }
 
         public static async Task<IEnumerable<TOut>> SelectManyAsync<TIn, TCollection, TOut>(
@@ -46,7 +46,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collectionSelector != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await Task.WhenAll(collection)).SelectMany(collectionSelector, resultSelector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).SelectMany(collectionSelector, resultSelector);
         }
 
         public static async Task<IEnumerable<TOut>> SelectManyAsync<TIn, TCollection, TOut>(
@@ -58,7 +58,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collectionSelector != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await collection).SelectMany(collectionSelector, resultSelector);
+            return (await collection.ConfigureAwait(false)).SelectMany(collectionSelector, resultSelector);
         }
 
         public static async Task<IEnumerable<TOut>> SelectManyAsync<TIn, TCollection, TOut>(
@@ -70,7 +70,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collectionSelector != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await Task.WhenAll(collection)).SelectMany(collectionSelector, resultSelector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).SelectMany(collectionSelector, resultSelector);
         }
     }
 }

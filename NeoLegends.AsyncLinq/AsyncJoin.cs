@@ -22,7 +22,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(innerKeySelector != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await outer).Join(await inner, outerKeySelector, innerKeySelector, resultSelector);
+            return (await outer.ConfigureAwait(false)).Join(await inner.ConfigureAwait(false), outerKeySelector, innerKeySelector, resultSelector);
         }
 
         public static async Task<IEnumerable<TResult>> GroupJoinAsync<TOuter, TInner, TKey, TResult>(
@@ -38,7 +38,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(innerKeySelector != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await Task.WhenAll(outer)).Join(await Task.WhenAll(inner), outerKeySelector, innerKeySelector, resultSelector);
+            return (await Task.WhenAll(outer).ConfigureAwait(false)).Join(await Task.WhenAll(inner).ConfigureAwait(false), outerKeySelector, innerKeySelector, resultSelector);
         }
 
         public static async Task<IEnumerable<TResult>> GroupJoinAsync<TOuter, TInner, TKey, TResult>(
@@ -56,7 +56,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(resultSelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await outer).Join(await inner, outerKeySelector, innerKeySelector, resultSelector, keyComparer);
+            return (await outer.ConfigureAwait(false)).Join(await inner.ConfigureAwait(false), outerKeySelector, innerKeySelector, resultSelector, keyComparer);
         }
 
         public static async Task<IEnumerable<TResult>> GroupJoinAsync<TOuter, TInner, TKey, TResult>(
@@ -74,7 +74,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(resultSelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await Task.WhenAll(outer)).Join(await Task.WhenAll(inner), outerKeySelector, innerKeySelector, resultSelector, keyComparer);
+            return (await Task.WhenAll(outer).ConfigureAwait(false)).Join(await Task.WhenAll(inner).ConfigureAwait(false), outerKeySelector, innerKeySelector, resultSelector, keyComparer);
         }
     }
 }

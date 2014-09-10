@@ -14,7 +14,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentOutOfRangeException>(count >= 0);
 
-            return (await collection).Take(count);
+            return (await collection.ConfigureAwait(false)).Take(count);
         }
 
         public static async Task<IEnumerable<T>> TakeAsync<T>(this IEnumerable<Task<T>> collection, int count)
@@ -22,7 +22,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentOutOfRangeException>(count >= 0);
 
-            return (await Task.WhenAll(collection)).Take(count);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Take(count);
         }
     }
 }

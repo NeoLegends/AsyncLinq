@@ -14,7 +14,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(aggregator != null);
 
-            return (await collection).Aggregate(aggregator);
+            return (await collection.ConfigureAwait(false)).Aggregate(aggregator);
         }
 
         public static async Task<T> AggregateAsync<T>(this IEnumerable<Task<T>> collection, Func<T, T, T> aggregator)
@@ -22,7 +22,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(aggregator != null);
 
-            return (await Task.WhenAll(collection)).Aggregate(aggregator);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Aggregate(aggregator);
         }
 
         public static async Task<TAccumulate> AggregateAsync<T, TAccumulate>(
@@ -33,7 +33,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(aggregator != null);
 
-            return (await collection).Aggregate(seed, aggregator);
+            return (await collection.ConfigureAwait(false)).Aggregate(seed, aggregator);
         }
 
         public static async Task<TAccumulate> AggregateAsync<T, TAccumulate>(
@@ -44,7 +44,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(aggregator != null);
 
-            return (await Task.WhenAll(collection)).Aggregate(seed, aggregator);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Aggregate(seed, aggregator);
         }
 
         public static async Task<T> AggregateAsync<T, TAccumulate>(
@@ -57,7 +57,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(aggregator != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await collection).Aggregate(seed, aggregator, resultSelector);
+            return (await collection.ConfigureAwait(false)).Aggregate(seed, aggregator, resultSelector);
         }
 
         public static async Task<T> AggregateAsync<T, TAccumulate>(
@@ -70,7 +70,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(aggregator != null);
             Contract.Requires<ArgumentNullException>(resultSelector != null);
 
-            return (await Task.WhenAll(collection)).Aggregate(seed, aggregator, resultSelector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Aggregate(seed, aggregator, resultSelector);
         }
     }
 }

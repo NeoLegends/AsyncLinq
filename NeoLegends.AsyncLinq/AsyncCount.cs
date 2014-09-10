@@ -13,7 +13,7 @@ namespace System.Collections.Generic
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await collection).Count();
+            return (await collection.ConfigureAwait(false)).Count();
         }
 
         public static async Task<int> CountAsync<T>(this Task<IEnumerable<T>> collection, Func<T, bool> predicate)
@@ -21,7 +21,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);
 
-            return (await collection).Count(predicate);
+            return (await collection.ConfigureAwait(false)).Count(predicate);
         }
 
         public static async Task<int> CountAsync<T>(this IEnumerable<Task<T>> collection, Func<T, bool> predicate)
@@ -29,7 +29,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);
 
-            return (await Task.WhenAll(collection)).Count(predicate);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Count(predicate);
         }
     }
 }

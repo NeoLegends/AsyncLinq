@@ -14,7 +14,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(comparand != null);
 
-            IEnumerable<T>[] whenAllResults = await Task.WhenAll(collection, comparand);
+            IEnumerable<T>[] whenAllResults = await Task.WhenAll(collection, comparand).ConfigureAwait(false);
             return whenAllResults[0].SequenceEqual(whenAllResults[1]);
         }
 
@@ -23,7 +23,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(comparand != null);
 
-            T[][] whenAllResults = await Task.WhenAll(Task.WhenAll(collection), Task.WhenAll(comparand));
+            T[][] whenAllResults = await Task.WhenAll(Task.WhenAll(collection), Task.WhenAll(comparand)).ConfigureAwait(false);
             return whenAllResults[0].SequenceEqual(whenAllResults[1]);
         }
 
@@ -33,7 +33,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(comparand != null);
             Contract.Requires<ArgumentNullException>(comparer != null);
 
-            IEnumerable<T>[] whenAllResults = await Task.WhenAll(collection, comparand);
+            IEnumerable<T>[] whenAllResults = await Task.WhenAll(collection, comparand).ConfigureAwait(false);
             return whenAllResults[0].SequenceEqual(whenAllResults[1], comparer);
         }
 
@@ -43,7 +43,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(comparand != null);
             Contract.Requires<ArgumentNullException>(comparer != null);
 
-            T[][] whenAllResults = await Task.WhenAll(Task.WhenAll(collection), Task.WhenAll(comparand));
+            T[][] whenAllResults = await Task.WhenAll(Task.WhenAll(collection), Task.WhenAll(comparand)).ConfigureAwait(false);
             return whenAllResults[0].SequenceEqual(whenAllResults[1], comparer);
         }
     }

@@ -14,7 +14,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(keySelector != null);
 
-            return (await collection).ToLookup(keySelector);
+            return (await collection.ConfigureAwait(false)).ToLookup(keySelector);
         }
 
         public static async Task<ILookup<TKey, T>> ToLookupAsync<T, TKey>(this IEnumerable<Task<T>> collection, Func<T, TKey> keySelector)
@@ -22,7 +22,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(keySelector != null);
 
-            return (await Task.WhenAll(collection)).ToLookup(keySelector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).ToLookup(keySelector);
         }
 
         public static async Task<ILookup<TKey, T>> ToLookupAsync<T, TKey>(
@@ -34,7 +34,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await collection).ToLookup(keySelector, keyComparer);
+            return (await collection.ConfigureAwait(false)).ToLookup(keySelector, keyComparer);
         }
 
         public static async Task<ILookup<TKey, T>> ToLookupAsync<T, TKey>(
@@ -46,7 +46,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await Task.WhenAll(collection)).ToLookup(keySelector, keyComparer);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).ToLookup(keySelector, keyComparer);
         }
 
         public static async Task<ILookup<TKey, TElement>> ToLookupAsync<T, TKey, TElement>(
@@ -58,7 +58,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(elementSelector != null);
 
-            return (await collection).ToLookup(keySelector, elementSelector);
+            return (await collection.ConfigureAwait(false)).ToLookup(keySelector, elementSelector);
         }
 
         public static async Task<ILookup<TKey, TElement>> ToLookupAsync<T, TKey, TElement>(
@@ -70,7 +70,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(elementSelector != null);
 
-            return (await Task.WhenAll(collection)).ToLookup(keySelector, elementSelector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).ToLookup(keySelector, elementSelector);
         }
 
         public static async Task<ILookup<TKey, TElement>> ToLookupAsync<T, TKey, TElement>(
@@ -84,7 +84,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(elementSelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await collection).ToLookup(keySelector, elementSelector, keyComparer);
+            return (await collection.ConfigureAwait(false)).ToLookup(keySelector, elementSelector, keyComparer);
         }
 
         public static async Task<ILookup<TKey, TElement>> ToLookupAsync<T, TKey, TElement>(
@@ -98,7 +98,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(elementSelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await Task.WhenAll(collection)).ToLookup(keySelector, elementSelector, keyComparer);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).ToLookup(keySelector, elementSelector, keyComparer);
         }
     }
 }

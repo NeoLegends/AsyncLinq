@@ -16,7 +16,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(keySelector != null);
 
-            return (await collection).ToDictionary(keySelector);
+            return (await collection.ConfigureAwait(false)).ToDictionary(keySelector);
         }
 
         public static async Task<Dictionary<TKey, TSource>> ToDictionaryAsync<TSource, TKey>(
@@ -26,7 +26,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(keySelector != null);
 
-            return (await Task.WhenAll(collection)).ToDictionary(keySelector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).ToDictionary(keySelector);
         }
 
         public static async Task<Dictionary<TKey, TSource>> ToDictionaryAsync<TSource, TKey>(
@@ -38,7 +38,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await collection).ToDictionary(keySelector, keyComparer);
+            return (await collection.ConfigureAwait(false)).ToDictionary(keySelector, keyComparer);
         }
 
         public static async Task<Dictionary<TKey, TSource>> ToDictionaryAsync<TSource, TKey>(
@@ -50,7 +50,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await Task.WhenAll(collection)).ToDictionary(keySelector, keyComparer);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).ToDictionary(keySelector, keyComparer);
         }
 
         public static async Task<Dictionary<TKey, TElement>> ToDictionaryAsync<TSource, TKey, TElement>(
@@ -62,7 +62,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(elementSelector != null);
 
-            return (await collection).ToDictionary(keySelector, elementSelector);
+            return (await collection.ConfigureAwait(false)).ToDictionary(keySelector, elementSelector);
         }
 
         public static async Task<Dictionary<TKey, TElement>> ToDictionaryAsync<TSource, TKey, TElement>(
@@ -74,7 +74,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(keySelector != null);
             Contract.Requires<ArgumentNullException>(elementSelector != null);
 
-            return (await Task.WhenAll(collection)).ToDictionary(keySelector, elementSelector);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).ToDictionary(keySelector, elementSelector);
         }
 
         public static async Task<Dictionary<TKey, TElement>> ToDictionaryAsync<TSource, TKey, TElement>(
@@ -88,7 +88,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(elementSelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await collection).ToDictionary(keySelector, elementSelector, keyComparer);
+            return (await collection.ConfigureAwait(false)).ToDictionary(keySelector, elementSelector, keyComparer);
         }
 
         public static async Task<Dictionary<TKey, TElement>> ToDictionaryAsync<TSource, TKey, TElement>(
@@ -102,7 +102,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(elementSelector != null);
             Contract.Requires<ArgumentNullException>(keyComparer != null);
 
-            return (await Task.WhenAll(collection)).ToDictionary(keySelector, elementSelector, keyComparer);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).ToDictionary(keySelector, elementSelector, keyComparer);
         }
     }
 }

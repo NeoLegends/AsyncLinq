@@ -13,14 +13,14 @@ namespace System.Collections.Generic
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await collection).ToList();
+            return (await collection.ConfigureAwait(false)).ToList();
         }
 
         public static async Task<List<T>> ToListAsync<T>(this IEnumerable<Task<T>> collection)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await Task.WhenAll(collection)).ToList();
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).ToList();
         }
     }
 }

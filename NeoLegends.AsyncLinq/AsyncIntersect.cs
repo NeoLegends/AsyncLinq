@@ -14,7 +14,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(first != null);
             Contract.Requires<ArgumentNullException>(second != null);
 
-            IEnumerable<T>[] whenAllResults = await Task.WhenAll(first, second);
+            IEnumerable<T>[] whenAllResults = await Task.WhenAll(first, second).ConfigureAwait(false);
             return whenAllResults[0].Intersect(whenAllResults[1]);
         }
 
@@ -23,7 +23,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(first != null);
             Contract.Requires<ArgumentNullException>(second != null);
 
-            T[][] whenAllResults = await Task.WhenAll(Task.WhenAll(first), Task.WhenAll(second));
+            T[][] whenAllResults = await Task.WhenAll(Task.WhenAll(first), Task.WhenAll(second)).ConfigureAwait(false);
             return whenAllResults[0].Intersect(whenAllResults[1]);
         }
 
@@ -33,7 +33,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(second != null);
             Contract.Requires<ArgumentNullException>(comparer != null);
 
-            IEnumerable<T>[] whenAllResults = await Task.WhenAll(first, second);
+            IEnumerable<T>[] whenAllResults = await Task.WhenAll(first, second).ConfigureAwait(false);
             return whenAllResults[0].Intersect(whenAllResults[1],comparer);
         }
 
@@ -43,7 +43,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(second != null);
             Contract.Requires<ArgumentNullException>(comparer != null);
 
-            T[][] whenAllResults = await Task.WhenAll(Task.WhenAll(first), Task.WhenAll(second));
+            T[][] whenAllResults = await Task.WhenAll(Task.WhenAll(first), Task.WhenAll(second)).ConfigureAwait(false);
             return whenAllResults[0].Intersect(whenAllResults[1], comparer);
         }
     }

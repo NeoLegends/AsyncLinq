@@ -14,7 +14,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentOutOfRangeException>(count >= 0);
 
-            return (await collection).Skip(count);
+            return (await collection.ConfigureAwait(false)).Skip(count);
         }
 
         public static async Task<IEnumerable<T>> SkipAsync<T>(this IEnumerable<Task<T>> collection, int count)
@@ -22,7 +22,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentOutOfRangeException>(count >= 0);
 
-            return (await Task.WhenAll(collection)).Skip(count);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Skip(count);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentOutOfRangeException>(index >= 0);
 
-            return (await collection).ElementAt(index);
+            return (await collection.ConfigureAwait(false)).ElementAt(index);
         }
         
         public static async Task<T> ElementAtAsync<T>(this IEnumerable<Task<T>> collection, int index)
@@ -22,7 +22,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentOutOfRangeException>(index >= 0);
 
-            return (await Task.WhenAll(collection)).ElementAt(index);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).ElementAt(index);
         }
     }
 }

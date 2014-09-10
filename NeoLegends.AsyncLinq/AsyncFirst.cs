@@ -13,7 +13,7 @@ namespace System.Collections.Generic
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await collection).First();
+            return (await collection.ConfigureAwait(false)).First();
         }
 
         public static async Task<T> FirstAsync<T>(this Task<IEnumerable<T>> collection, Func<T, bool> predicate)
@@ -21,7 +21,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);
 
-            return (await collection).First(predicate);
+            return (await collection.ConfigureAwait(false)).First(predicate);
         }
 
         public static async Task<T> FirstAsync<T>(this IEnumerable<Task<T>> collection, Func<T, bool> predicate)

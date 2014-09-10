@@ -13,7 +13,7 @@ namespace System.Collections.Generic
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await collection).SingleOrDefault();
+            return (await collection.ConfigureAwait(false)).SingleOrDefault();
         }
 
         public static Task<T> SingleOrDefaultAsync<T>(this IEnumerable<Task<T>> collection)
@@ -33,7 +33,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);
 
-            return (await collection).SingleOrDefault(predicate);
+            return (await collection.ConfigureAwait(false)).SingleOrDefault(predicate);
         }
 
         public static Task<T> SingleOrDefaultAsync<T>(this IEnumerable<Task<T>> collection, Func<T, bool> predicate)

@@ -13,14 +13,14 @@ namespace System.Collections.Generic
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await collection).Reverse();
+            return (await collection.ConfigureAwait(false)).Reverse();
         }
 
         public static async Task<IEnumerable<T>> ReverseAsync<T>(this IEnumerable<Task<T>> collection)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await Task.WhenAll(collection)).Reverse();
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).Reverse();
         }
     }
 }

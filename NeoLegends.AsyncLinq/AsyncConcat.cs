@@ -10,13 +10,13 @@ namespace System.Collections.Generic
     {
         public static async Task<IEnumerable<T>> ConcatAsync<T>(this Task<IEnumerable<T>> first, Task<IEnumerable<T>> second)
         {
-            IEnumerable<T>[] whenAllResults = await Task.WhenAll(first, second);
+            IEnumerable<T>[] whenAllResults = await Task.WhenAll(first, second).ConfigureAwait(false);
             return whenAllResults[0].Concat(whenAllResults[1]);
         }
 
         public static async Task<IEnumerable<T>> ConcatAsync<T>(this IEnumerable<Task<T>> first, IEnumerable<Task<T>> second)
         {
-            T[][] whenAllResults = await Task.WhenAll(Task.WhenAll(first), Task.WhenAll(second));
+            T[][] whenAllResults = await Task.WhenAll(Task.WhenAll(first), Task.WhenAll(second)).ConfigureAwait(false);
             return whenAllResults[0].Concat(whenAllResults[1]);
         }
     }

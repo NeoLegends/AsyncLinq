@@ -14,7 +14,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);
 
-            return (await collection).All(predicate);
+            return (await collection.ConfigureAwait(false)).All(predicate);
         }
 
         public static async Task<bool> AllAsync<T>(this IEnumerable<Task<T>> collection, Func<T, bool> predicate)
@@ -22,7 +22,7 @@ namespace System.Collections.Generic
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);
 
-            return (await Task.WhenAll(collection)).All(predicate);
+            return (await Task.WhenAll(collection).ConfigureAwait(false)).All(predicate);
         }
     }
 }
