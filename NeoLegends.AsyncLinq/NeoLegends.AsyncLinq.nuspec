@@ -2,14 +2,14 @@
 <package >
     <metadata>
         <id>NeoLegends.AsyncLinq</id>
-        <version>1.0.1.0</version>
+        <version>1.1.0.0</version>
         <authors>Moritz Gunz</authors> 
         <owners>Moritz Gunz</owners>
         <licenseUrl>https://github.com/NeoLegends/AsyncLinq/blob/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/NeoLegends/AsyncLinq</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>A .NET library containing LINQ-to-Object extension methods for working with TPL Tasks.</description>
-        <releaseNotes>Now using .ConfigureAwait(false) to improve performance a little. Another contracts reference assembly deployment fix.</releaseNotes>
+        <releaseNotes>All AsyncLinq operators now reside in default LINQ namespace.</releaseNotes>
         <copyright>Copyright 2014 Moritz Gunz</copyright>
         <tags>Linq AsyncLinq to objects Extension async await Task TPL Linq-to-Objects</tags>
         <references>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace System.Collections.Generic
+namespace System.Linq
 {
     public static partial class AsyncEnumerable
     {
