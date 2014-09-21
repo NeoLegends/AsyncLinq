@@ -9,7 +9,9 @@ namespace System.Linq
 {
     public static partial class AsyncEnumerable
     {
-        public static async Task<IEnumerable<TOut>> SelectManyAsync<TIn, TOut>(this Task<IEnumerable<TIn>> collection, Func<TIn, IEnumerable<TOut>> selector)
+        public static async Task<IEnumerable<TOut>> SelectManyAsync<TIn, TOut>(
+            this Task<IEnumerable<TIn>> collection, 
+            Func<TIn, IEnumerable<TOut>> selector)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
@@ -17,7 +19,9 @@ namespace System.Linq
             return (await collection.ConfigureAwait(false)).SelectMany(selector);
         }
 
-        public static async Task<IEnumerable<TOut>> SelectManyAsync<TIn, TOut>(this IEnumerable<Task<TIn>> collection, Func<TIn, IEnumerable<TOut>> selector)
+        public static async Task<IEnumerable<TOut>> SelectManyAsync<TIn, TOut>(
+            this IEnumerable<Task<TIn>> collection, 
+            Func<TIn, IEnumerable<TOut>> selector)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(selector != null);
