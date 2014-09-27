@@ -41,7 +41,7 @@ namespace System.Linq
             return (await Task.WhenAll(collection).ConfigureAwait(false)).Where(predicate);
         }
 
-        public static async Task<IEnumerable<T>> WhereAsync<T>(this Task<IEnumerable<T>> collection, Func<T, Task<bool>> predicate)
+        public static async Task<IEnumerable<T>> WhereAsync<T>(this IEnumerable<Task<T>> collection, Func<T, Task<bool>> predicate)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);
@@ -90,7 +90,7 @@ namespace System.Linq
             return (await Task.WhenAll(collection).ConfigureAwait(false)).Where(predicate);
         }
 
-        public static async Task<IEnumerable<T>> WhereAsync<T>(this Task<IEnumerable<T>> collection, Func<T, int, Task<bool>> predicate)
+        public static async Task<IEnumerable<T>> WhereAsync<T>(this IEnumerable<Task<T>> collection, Func<T, int, Task<bool>> predicate)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);

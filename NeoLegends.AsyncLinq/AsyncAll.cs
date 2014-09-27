@@ -45,13 +45,13 @@ namespace System.Linq
             Contract.Requires<ArgumentNullException>(collection != null);
             Contract.Requires<ArgumentNullException>(predicate != null);
 
-            List<Task<T>> tasks = collection.ToList();
-            while (tasks.Any())
+            List<Task<T>> workingCopy = collection.ToList();
+            while (workingCopy.Any())
             {
-                Task<T> finishedTask = await Task.WhenAny(tasks);
+                Task<T> finishedTask = await Task.WhenAny(workingCopy);
                 if (await predicate(finishedTask.Result))
                 {
-                    tasks.Remove(finishedTask);
+                    workingCopy.Remove(finishedTask);
                 }
                 else
                 {

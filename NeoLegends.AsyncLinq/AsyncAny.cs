@@ -64,7 +64,7 @@ namespace System.Linq
             List<Task<T>> workingCopy = collection.ToList();
             while (workingCopy.Any())
             {
-                Task<T> finishedTask = await Task.WhenAny(collection);
+                Task<T> finishedTask = await Task.WhenAny(workingCopy);
                 if (await predicate(finishedTask.Result))
                 {
                     return true;

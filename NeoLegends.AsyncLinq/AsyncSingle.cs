@@ -26,7 +26,7 @@ namespace System.Linq
                 workingCopy.Remove(t.Result);
                 if (workingCopy.Any())
                 {
-                    throw new InvalidOperationException("Multiple elements were in the list.");
+                    throw new InvalidOperationException("Multiple elements were returned.");
                 }
                 else
                 {
