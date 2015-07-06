@@ -31,7 +31,7 @@ namespace System.Linq
 
             foreach (Task<T> task in collection.Reverse())
             {
-                T result = await task;
+                T result = await task.ConfigureAwait(false);
                 if (predicate(result))
                 {
                     return result;
@@ -49,7 +49,7 @@ namespace System.Linq
             Task<T> current = null;
             while (workingCopy.Any())
             {
-                current = await Task.WhenAny(workingCopy);
+                current = await Task.WhenAny(workingCopy).ConfigureAwait(false);
                 workingCopy.Remove(current);
             }
             return current.Result;
@@ -64,7 +64,7 @@ namespace System.Linq
             Task<T> current = null;
             while (workingCopy.Any())
             {
-                Task<T> finishedTask = await Task.WhenAny(workingCopy);
+                Task<T> finishedTask = await Task.WhenAny(workingCopy).ConfigureAwait(false);
                 if (predicate(finishedTask.Result))
                 {
                     current = finishedTask;

@@ -31,7 +31,7 @@ namespace System.Linq
 
             foreach (Task<T> task in collection)
             {
-                T result = await task;
+                T result = await task.ConfigureAwait(false);
                 if (predicate(result))
                 {
                     return result;
@@ -45,7 +45,7 @@ namespace System.Linq
         {
             Contract.Requires<ArgumentNullException>(collection != null);
 
-            return (await Task.WhenAny(collection)).Result;
+            return (await Task.WhenAny(collection).ConfigureAwait(false)).Result;
         }
 
         public static async Task<T> FirstFinishedAsync<T>(this IEnumerable<Task<T>> collection, Func<T, bool> predicate)
@@ -56,7 +56,7 @@ namespace System.Linq
             List<Task<T>> workingCopy = collection.ToList();
             while (workingCopy.Any())
             {
-                Task<T> finishedTask = await Task.WhenAny(workingCopy);
+                Task<T> finishedTask = await Task.WhenAny(workingCopy).ConfigureAwait(false);
                 if (predicate(finishedTask.Result))
                 {
                     return finishedTask.Result;

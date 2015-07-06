@@ -41,7 +41,7 @@ namespace System.Linq
 
             foreach (Task<T> task in collection.Reverse())
             {
-                T result = await task;
+                T result = await task.ConfigureAwait(false);
                 if (predicate(result))
                 {
                     return result;
